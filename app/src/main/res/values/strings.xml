@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">PHR</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="don_t_have_an_acount_yet_click_to_register">Don\'t have an acount yet, click to register</string>
+    <string name="login">Login</string>
+    <string name="loginimageview">\n</string>
+    <string name="sign_in">Sign In</string>
+    <string name="click_to_register">CLick To Register</string>
+    <string name="email">Email</string>
+    <string name="login_image_description">\nlogin_image_description\n</string>
+    <string name="password">Password</string>
+    <string name="login_image_descriptionn">login image description</string>
+    <string name="test_name">test_name</string>
+    <string name="attach_result">attach_result</string>
+    <string name="add_test_result">add_test_result</string>
+    <string name="doctor_name">doctor_name</string>
+    <string name="location">location</string>
+    <string name="date">date</string>
+    <string name="time">time</string>
+    <string name="add_appointment">add_appointment</string>
+    <string name="medication_name">medication_name</string>
+    <string name="dosage">dosage</string>
+    <string name="frequency">frequency</string>
+    <string name="add_medication">add_medication</string>
+    <string name="appointment_date_hint">appointment_date_hint</string>
+    <string name="appointment_time_hint">appointment_time_hint\n</string>
+    <string name="welcome_to_my_medical_diary">Welcome to My Medical Diary</string>
+</resources>

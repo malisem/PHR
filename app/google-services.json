@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "654776266244",
+    "project_id": "personal-health-record-b7e77",
+    "storage_bucket": "personal-health-record-b7e77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654776266244:android:850c6503a0f05f6ced0f51",
+        "android_client_info": {
+          "package_name": "com.project.phr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhi0zMwCVUwz6kRwyJ0HIlIYYSfX3PXuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

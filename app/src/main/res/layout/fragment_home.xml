@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/background3">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_to_my_medical_diary"
+        android:textSize="30sp"
+        android:layout_gravity="top"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/lightBlack"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="20sp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/health"
+        android:contentDescription="imageviewhealthrecord" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:orientation="vertical"
+        android:padding="1dp">
+        <!-- Horizontal LinearLayout for buttons -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            >
+
+            <!-- Space used for padding between elements -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+
+            <!-- Button for booking a table -->
+            <Button
+                android:id="@+id/buttonAppointments"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:backgroundTint="@color/blue_1"
+                android:text="Appointments"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                />
+
+            <!-- Another space for padding -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+
+            <!-- Button to access the menu -->
+            <Button
+                android:id="@+id/buttonMedications"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:backgroundTint="@color/blue_1"
+                android:text="Medications"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                />
+
+            <!-- Final space for padding -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Space used for padding between elements -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+
+            <!-- Button for booking a table -->
+            <Button
+                android:id="@+id/buttonNotes"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:backgroundTint="@color/blue_1"
+                android:text="Notes"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <!-- Another space for padding -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+
+            <!-- Button to access the menu -->
+            <Button
+                android:id="@+id/buttonTestresults"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:backgroundTint="@color/blue_1"
+                android:text="Testresults"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <!-- Final space for padding -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Space used for padding between elements -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+
+            <!-- Button for booking a table -->
+            <Button
+                android:id="@+id/history_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:backgroundTint="@color/blue_1"
+                android:text="History"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <!-- Another space for padding -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+
+            <!-- Button to access the menu -->
+            <Button
+                android:id="@+id/buttonOrview"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:backgroundTint="@color/blue_1"
+                android:text="Orview"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <!-- Final space for padding -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

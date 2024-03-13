@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/editTextTestName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/test_name"
+        android:autofillHints="test_name" />
+
+    <!-- Implementation for attaching an image might require a Button or an ImageButton
+         that opens a file picker or camera, and a ImageView to display the selected image. -->
+
+    <Button
+        android:id="@+id/buttonAttachResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/attach_result" />
+
+    <Button
+        android:id="@+id/buttonAddTestResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_test_result" />
+</LinearLayout>
