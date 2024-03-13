@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
+
         // Now you can set up the NavController
         val navController = navHostFragment.navController
         val appBarConfiguration = AppBarConfiguration(
