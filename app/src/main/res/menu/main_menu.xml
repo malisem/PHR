@@ -2,40 +2,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- Home Fragment -->
     <item
-        android:id="@+id/homeFragment"
-        android:icon="@drawable/background5"
-        android:title="home" />
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_home"
+        android:orderInCategory="200"
+        android:title="@string/home"
+        app:showAsAction="ifRoom" />
 
-    <!-- Medications Fragment -->
     <item
-        android:id="@+id/medicationsFragment"
-        android:icon="@drawable/pilsbackground"
-        android:title="medications" />
+        android:id="@+id/action_history"
+        android:icon="@drawable/ic_history"
+        android:title="@string/history"
+        android:orderInCategory="300"
+        app:showAsAction="never" />
 
-    <!-- Appointments Fragment -->
     <item
-        android:id="@+id/appointmentsFragment"
-        android:icon="@drawable/background3"
-        android:title="appointments" />
+        android:id="@+id/action_information"
+        android:icon="@drawable/ic_information"
+        android:title="@string/information"
+        android:orderInCategory="400"
+        app:showAsAction="never" />
 
-    <!-- Test Results Fragment -->
-    <item
-        android:id="@+id/testResultsFragment"
-        android:icon="@drawable/background1"
-        android:title="test_results" />
-
-    <!-- Notes Fragment -->
-    <item
-        android:id="@+id/notesFragment"
-        android:icon="@drawable/background3"
-        android:title="notes" />
-
-    <!-- Sign Out -->
-    <item
-        android:id="@+id/action_sign_out"
-        android:icon="@drawable/baseline_arrow_back_ios_new_24"
-        android:title="@string/sign_out"
-        app:showAsAction="never"/>
 </menu>
+
+

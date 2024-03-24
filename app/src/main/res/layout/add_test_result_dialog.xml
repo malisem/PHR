@@ -3,14 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="@drawable/bluelightback">
 
     <EditText
         android:id="@+id/editTextTestName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/test_name"
-        android:autofillHints="test_name" />
+        android:autofillHints="test_name"
+        android:textColor="@color/black"/>
 
     <!-- Implementation for attaching an image might require a Button or an ImageButton
          that opens a file picker or camera, and a ImageView to display the selected image. -->
@@ -19,11 +21,15 @@
         android:id="@+id/buttonAttachResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/attach_result" />
+        android:text="Attach result"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"/>
 
     <Button
         android:id="@+id/buttonAddTestResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_test_result" />
+        android:text="Add test result"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"/>
 </LinearLayout>

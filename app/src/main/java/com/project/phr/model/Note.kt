@@ -4,5 +4,7 @@ data class Note(
     var id: String = "",
     var title: String = "",
     var content: String = "",
-    var date: Long = System.currentTimeMillis() // Storing the date as a timestamp
+    var date: String = "", // Use String to store date in a readable format
+    var time: String = "" // Use String to store time
 )
+

@@ -38,6 +38,16 @@ class NotesViewModel(private val notesRepo: NotesRepository) : ViewModel() {
         }
     }
 
+    fun saveNote(note: Note) {
+        viewModelScope.launch {
+            _operationStatus.postValue(Resource.Loading())
+            val result = notesRepo.addNote(note) // Or updateNote if editing an existing note
+            _operationStatus.postValue(result)
+            getNotes() // Refresh the list of notes
+        }
+    }
+
+
     fun deleteNote(noteId: String) {
         viewModelScope.launch {
             _operationStatus.postValue(Resource.Loading())

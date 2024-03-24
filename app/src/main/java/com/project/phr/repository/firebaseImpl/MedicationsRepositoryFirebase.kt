@@ -1,34 +1,43 @@
 package com.project.phr.repository.firebaseImpl
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
 import com.project.phr.model.Medication
 import com.project.phr.repository.MedicationsRepository
 import com.project.phr.util.Resource
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import kotlinx.coroutines.channels.awaitClose
 
 class MedicationsRepositoryFirebase : MedicationsRepository {
 
     private val medsRef = FirebaseFirestore.getInstance().collection("medications")
+    private val db = FirebaseFirestore.getInstance() // Get an instance of Firestore
+    private val medsCollection = db.collection("medications") // Reference to the medications collection
 
-    // Ensure you have a safeCall function that handles exceptions and returns a Resource.
-    // This should be somewhere in your utilities:
+
     private inline fun <T> safeCall(action: () -> Resource<T>): Resource<T> = try {
         action()
     } catch (e: Exception) {
         Resource.Error(e.localizedMessage ?: "An unknown error occurred", null)
     }
 
-    override suspend fun addMedication(medication: Medication): Resource<Unit> = withContext(Dispatchers.IO) {
-        safeCall {
-            medsRef.document(medication.id).set(medication).await()
-            Resource.Success(Unit) // Correctly return Unit for success without a specific value
+    override suspend fun addMedication(medication: Medication): Resource<Unit> {
+        return try {
+            medsCollection.add(medication).await()
+            Log.d("FirestoreAdd", "Successfully added medication: ${medication.name}")
+            Resource.Success(Unit)
+        } catch (e: Exception) {
+            Log.e("FirestoreAdd", "Error adding medication", e)
+            Resource.Error("An error occurred: ${e.localizedMessage}")
         }
     }
+
+
+
     override suspend fun deleteMedication(medicationId: String): Resource<Unit> = withContext(Dispatchers.IO) {
         safeCall {
             medsRef.document(medicationId).delete().await() // Use .delete() for removing a document

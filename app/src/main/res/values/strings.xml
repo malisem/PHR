@@ -25,4 +25,18 @@
     <string name="appointment_date_hint">appointment_date_hint</string>
     <string name="appointment_time_hint">appointment_time_hint\n</string>
     <string name="welcome_to_my_medical_diary">Welcome to My Medical Diary</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settings">settings</string>
+    <string name="home">home</string>
+    <string name="history">history</string>
+    <string name="information">information</string>
+    <string name="phr">PHR</string>
+    <string name="welcome_to_your_medical_diary">welcome to your medical diary</string>
+    <string name="search">search</string>
+    <string name="title_note">Title</string>
+    <string name="content_note">Content</string>
+    <string name="save_note">Save</string>
+    <string name="add_your_note">Add Your Note</string>
+    <string name="select">select</string>
 </resources>

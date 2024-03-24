@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:background="@drawable/background7">
+    android:padding="24dp">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,22 +12,22 @@
         android:layout_marginBottom="32dp"
         android:layout_marginTop="40dp"
         android:gravity="center"
-        android:text="Medication"
+        android:text="Add  Medication"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/editTextMedicationName"
-        android:layout_width="250dp"
+        android:id="@+id/medicationNameEditText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="@color/black"
-        android:hint="@string/medication_name" />
+        android:hint="Medication Name" />
 
     <EditText
         android:id="@+id/editTextMedicationDosage"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
@@ -37,22 +36,14 @@
 
     <EditText
         android:id="@+id/editTextMedicationFrequency"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="@color/black"
         android:hint="@string/frequency" />
 
-    <Button
-        android:id="@+id/buttonAddMedication"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:backgroundTint="@color/semi_transparent_grey"
-        android:textColor="@color/black"
-        android:text="@string/add_medication" />
+
 
     <ImageView
         android:layout_width="200dp"

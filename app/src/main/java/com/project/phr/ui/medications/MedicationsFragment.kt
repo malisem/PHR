@@ -1,59 +1,76 @@
 package com.project.phr.ui.medications
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.project.phr.R
+import com.project.phr.SwipeToDeleteCallback
 import com.project.phr.databinding.FragmentMedicationsBinding
 import com.project.phr.repository.firebaseImpl.MedicationsRepositoryFirebase
 import com.project.phr.util.Resource
-import com.project.phr.util.autoCleared
 
 class MedicationsFragment : Fragment() {
-    private var binding: FragmentMedicationsBinding by autoCleared()
+
+    private var _binding: FragmentMedicationsBinding? = null
+    private val binding get() = _binding!!
+
     private val viewModel: MedicationsViewModel by viewModels {
-        MedicationsViewModel.MedicationsViewModelFactory(MedicationsRepositoryFirebase())
+        MedicationsViewModelFactory(MedicationsRepositoryFirebase())
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentMedicationsBinding.inflate(inflater, container, false)
-        setupRecyclerView()
-        binding.addMedicationFab.setOnClickListener {
-            // Implement your logic to add a new medication
-            Toast.makeText(context, "Add Medication", Toast.LENGTH_SHORT).show()
-        }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentMedicationsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    private fun setupRecyclerView() {
-        val adapter = MedicationsAdapter { medication ->
-            // Example: Navigate to a detail view or perform other actions with the selected medication
-            Toast.makeText(context, "Medication clicked: ${medication.name}", Toast.LENGTH_SHORT).show()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecyclerViewAndSwipeToDelete()
+    }
+
+    private fun setupRecyclerViewAndSwipeToDelete() {
+        val adapter = MedicationsAdapter { medicationId ->
+            // This might not be needed if you're focusing on swipe to delete.
         }
-        binding.medicationsRecyclerView.adapter = adapter // Updated to use medicationsRecyclerView
+        binding.medicationsRecyclerView.adapter = adapter
         binding.medicationsRecyclerView.layoutManager = LinearLayoutManager(context)
 
         viewModel.medicationsStatus.observe(viewLifecycleOwner) { resource ->
             when (resource) {
-                is Resource.Loading -> {
-                    // Show loading state, e.g., show a ProgressBar
-                    binding.progressBar.visibility = View.VISIBLE
-                }
                 is Resource.Success -> {
-                    // Update adapter with medications list and hide loading indicator
+                    Log.d("MedicationsFragment", "Submitting list with size: ${resource.data?.size}")
+                    adapter.submitList(resource.data)
                     binding.progressBar.visibility = View.GONE
-                    adapter.setTasks(resource.data ?: emptyList())
                 }
+                is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
                 is Resource.Error -> {
-                    // Hide loading indicator and show an error message
-                    binding.progressBar.visibility = View.GONE
                     Toast.makeText(context, "Error: ${resource.message}", Toast.LENGTH_LONG).show()
+                    binding.progressBar.visibility = View.GONE
                 }
             }
         }
+
+        val deleteIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_delete)!!
+        val swipeToDeleteCallback = SwipeToDeleteCallback(adapter, deleteIcon) { position ->
+            val medicationId = adapter.currentList[position].id
+            viewModel.deleteMedication(medicationId)
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(binding.medicationsRecyclerView)
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
+
